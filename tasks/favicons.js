@@ -355,10 +355,10 @@ module.exports = function(grunt) {
                     var elements = "";
 
                     if (options.windowsTile) {
-                        elements += options.indent + "<meta name=\"msapplication-square70x70logo\" content=\"" + options.HTMLPrefix + "windows-tile-70x70.png" + (options.timestamp ? timestamp : '') + "\"/>\n";
-                        elements += options.indent + "<meta name=\"msapplication-square150x150logo\" content=\"" + options.HTMLPrefix + "windows-tile-150x150.png" + (options.timestamp ? timestamp : '') + "\"/>\n";
-                        elements += options.indent + "<meta name=\"msapplication-square310x310logo\" content=\"" + options.HTMLPrefix + "windows-tile-310x310.png" + (options.timestamp ? timestamp : '') + "\"/>\n";
-                        elements += options.indent + "<meta name=\"msapplication-TileImage\" content=\"" + options.HTMLPrefix + "windows-tile-144x144.png" + (options.timestamp ? timestamp : '') + "\"/>\n";
+                        elements += options.indent + "<meta name=\"msapplication-square70x70logo\" content=\"{% static '" + options.HTMLPrefix + "windows-tile-70x70.png" + (options.timestamp ? timestamp : '') + "' %}\"/>\n";
+                        elements += options.indent + "<meta name=\"msapplication-square150x150logo\" content=\"{% static '" + options.HTMLPrefix + "windows-tile-150x150.png" + (options.timestamp ? timestamp : '') + "' %}\"/>\n";
+                        elements += options.indent + "<meta name=\"msapplication-square310x310logo\" content=\"{% static '" + options.HTMLPrefix + "windows-tile-310x310.png" + (options.timestamp ? timestamp : '') + "' %}\"/>\n";
+                        elements += options.indent + "<meta name=\"msapplication-TileImage\" content=\"{% static '" + options.HTMLPrefix + "windows-tile-144x144.png" + (options.timestamp ? timestamp : '') + "' %}\"/>\n";
                         if (options.tileColor !== "none") {
                             elements += options.indent + "<meta name=\"msapplication-TileColor\" content=\"" + options.tileColor + "\"/>\n";
                         }
@@ -366,34 +366,34 @@ module.exports = function(grunt) {
 
                     // iOS
                     if (options.apple) {
-                        elements += options.indent + "<link rel=\"apple-touch-icon-precomposed\" sizes=\"152x152\" href=\"" + options.HTMLPrefix + "apple-touch-icon-152x152-precomposed.png" + (options.timestamp ? timestamp : '') + "\">\n";
-                        elements += options.indent + "<link rel=\"apple-touch-icon-precomposed\" sizes=\"120x120\" href=\"" + options.HTMLPrefix + "apple-touch-icon-120x120-precomposed.png" + (options.timestamp ? timestamp : '') + "\">\n";
+                        elements += options.indent + "<link rel=\"apple-touch-icon-precomposed\" sizes=\"152x152\" href=\"{% static '" + options.HTMLPrefix + "apple-touch-icon-152x152-precomposed.png" + (options.timestamp ? timestamp : '') + "' %}\">\n";
+                        elements += options.indent + "<link rel=\"apple-touch-icon-precomposed\" sizes=\"120x120\" href=\"{% static '" + options.HTMLPrefix + "apple-touch-icon-120x120-precomposed.png" + (options.timestamp ? timestamp : '') + "' %}\">\n";
 
-                        elements += options.indent + "<link rel=\"apple-touch-icon-precomposed\" sizes=\"76x76\" href=\"" + options.HTMLPrefix + "apple-touch-icon-76x76-precomposed.png" + (options.timestamp ? timestamp : '') + "\">\n";
-                        elements += options.indent + "<link rel=\"apple-touch-icon-precomposed\" sizes=\"60x60\" href=\"" + options.HTMLPrefix + "apple-touch-icon-60x60-precomposed.png" + (options.timestamp ? timestamp : '') + "\">\n";
+                        elements += options.indent + "<link rel=\"apple-touch-icon-precomposed\" sizes=\"76x76\" href=\"{% static '" + options.HTMLPrefix + "apple-touch-icon-76x76-precomposed.png" + (options.timestamp ? timestamp : '') + "' %}\">\n";
+                        elements += options.indent + "<link rel=\"apple-touch-icon-precomposed\" sizes=\"60x60\" href=\"{% static '" + options.HTMLPrefix + "apple-touch-icon-60x60-precomposed.png" + (options.timestamp ? timestamp : '') + "' %}\">\n";
 
-                        elements += options.indent + "<link rel=\"apple-touch-icon" + prefix + "\" sizes=\"144x144\" href=\"" + options.HTMLPrefix + "apple-touch-icon-144x144" + prefix + ".png" + (options.timestamp ? timestamp : '') + "\">\n";
-                        elements += options.indent + "<link rel=\"apple-touch-icon" + prefix + "\" sizes=\"114x114\" href=\"" + options.HTMLPrefix + "apple-touch-icon-114x114" + prefix + ".png" + (options.timestamp ? timestamp : '') + "\">\n";
+                        elements += options.indent + "<link rel=\"apple-touch-icon" + prefix + "\" sizes=\"144x144\" href=\"{% static '" + options.HTMLPrefix + "apple-touch-icon-144x144" + prefix + ".png" + (options.timestamp ? timestamp : '') + "' %}\">\n";
+                        elements += options.indent + "<link rel=\"apple-touch-icon" + prefix + "\" sizes=\"114x114\" href=\"{% static '" + options.HTMLPrefix + "apple-touch-icon-114x114" + prefix + ".png" + (options.timestamp ? timestamp : '') + "' %}\">\n";
 
-                        elements += options.indent + "<link rel=\"apple-touch-icon" + prefix + "\" sizes=\"72x72\" href=\"" + options.HTMLPrefix + "apple-touch-icon-72x72" + prefix + ".png" + (options.timestamp ? timestamp : '') + "\">\n";
-                        elements += options.indent + "<link rel=\"apple-touch-icon\" sizes=\"57x57\" href=\"" + options.HTMLPrefix + "apple-touch-icon.png" + (options.timestamp ? timestamp : '') + "\">\n";
+                        elements += options.indent + "<link rel=\"apple-touch-icon" + prefix + "\" sizes=\"72x72\" href=\"{% static '" + options.HTMLPrefix + "apple-touch-icon-72x72" + prefix + ".png" + (options.timestamp ? timestamp : '') + "' %}\">\n";
+                        elements += options.indent + "<link rel=\"apple-touch-icon\" sizes=\"57x57\" href=\"{% static '" + options.HTMLPrefix + "apple-touch-icon.png" + (options.timestamp ? timestamp : '') + "' %}\">\n";
                     }
 
                     // Coast browser
                     if (options.coast) {
-                      elements += options.indent + "<link rel=\"icon\" sizes=\"228x228\" href=\"" + options.HTMLPrefix + "coast-icon-228x228.png" + (options.timestamp ? timestamp : '') + "\" />\n";
+                      elements += options.indent + "<link rel=\"icon\" sizes=\"228x228\" href=\"{% static '" + options.HTMLPrefix + "coast-icon-228x228.png" + (options.timestamp ? timestamp : '') + "' %}\" />\n";
                     }
 
                     // Android Homescreen app
                     if (options.androidHomescreen) {
                       elements += options.indent + "<meta name=\"mobile-web-app-capable\" value=\"yes\" />\n";
-                      elements += options.indent + "<link rel=\"icon\" sizes=\"192x192\" href=\"" + options.HTMLPrefix + "homescreen-192x192.png" + (options.timestamp ? timestamp : '') + "\" />\n";
+                      elements += options.indent + "<link rel=\"icon\" sizes=\"192x192\" href=\"{% static '" + options.HTMLPrefix + "homescreen-192x192.png" + (options.timestamp ? timestamp : '') + "' %}\" />\n";
                     }
 
                     // Default
                     if (options.regular) {
-                        elements += options.indent + "<link rel=\"shortcut icon\" href=\"" + options.HTMLPrefix + "favicon.ico" + (options.timestamp ? timestamp : '') + "\" />\n";
-                        elements += options.indent + "<link rel=\"icon\" type=\"image/png\" sizes=\"64x64\" href=\"" + options.HTMLPrefix + "favicon.png" + (options.timestamp ? timestamp : '') + "\" />\n";
+                        elements += options.indent + "<link rel=\"shortcut icon\" href=\"{% static '" + options.HTMLPrefix + "favicon.ico" + (options.timestamp ? timestamp : '') + "' %}\" />\n";
+                        elements += options.indent + "<link rel=\"icon\" type=\"image/png\" sizes=\"64x64\" href=\"{% static '" + options.HTMLPrefix + "favicon.png" + (options.timestamp ? timestamp : '') + "' %}\" />\n";
                     }
 
                     // Windows 8 tile. In HTML version background color will be as meta-tag
