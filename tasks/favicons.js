@@ -27,6 +27,7 @@ module.exports = function(grunt) {
             appleTouchPadding: 15,
             windowsTile: true,
             coast: false,
+            coastIconPadding: 15,
             sharp: 0,
             tileBlackWhite: true,
             tileColor: "auto", // none, auto, #color
@@ -36,7 +37,7 @@ module.exports = function(grunt) {
             firefoxRound: false,
             firefoxManifest: "",
             androidHomescreen: false,
-            androidTouchPadding: 15,
+            androidIconPadding: 15,
             indent: "\t",
             timestamp: false,
             getLowResolutionImagePath: function (srcFilePath, size) {
@@ -250,14 +251,14 @@ module.exports = function(grunt) {
                 // 228x228: Coast
                 if (options.coast) {
                     grunt.log.write('coast-icon-228x228.png... ');
-                    convert(combine(source, f.dest, "228x228", "coast-icon-228x228.png", additionalOpts));
+                    convert(combine(source, f.dest, "228x228", "coast-icon-228x228.png", additionalOpts, options.coastIconPadding));
                     grunt.log.ok();
                 }
 
                 // Android Homescreen app
                 if (options.androidHomescreen) {
                     grunt.log.write('homescreen-192x192.png... ');
-                    convert(combine(source, f.dest, "192x192", "homescreen-192x192.png", additionalOpts, options.androidTouchPadding));
+                    convert(combine(source, f.dest, "192x192", "homescreen-192x192.png", additionalOpts, options.androidIconPadding));
                     grunt.log.ok();
                 }
 
