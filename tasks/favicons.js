@@ -36,6 +36,7 @@ module.exports = function(grunt) {
             firefoxRound: false,
             firefoxManifest: "",
             androidHomescreen: false,
+            androidTouchPadding: 15,
             indent: "\t",
             timestamp: false,
             getLowResolutionImagePath: function (srcFilePath, size) {
@@ -256,7 +257,7 @@ module.exports = function(grunt) {
                 // Android Homescreen app
                 if (options.androidHomescreen) {
                     grunt.log.write('homescreen-192x192.png... ');
-                    convert(combine(source, f.dest, "192x192", "homescreen-192x192.png", additionalOpts));
+                    convert(combine(source, f.dest, "192x192", "homescreen-192x192.png", additionalOpts, options.androidTouchPadding));
                     grunt.log.ok();
                 }
 
